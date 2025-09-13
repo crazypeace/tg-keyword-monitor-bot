@@ -1,0 +1,3 @@
+telethon>=1.28.0
+PyYAML>=6.0
+asyncio

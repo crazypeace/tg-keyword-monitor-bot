@@ -1,0 +1,54 @@
+# 账户信息
+account: 
+  api_id: '1400003'
+  api_hash: 'd11xxxxx112a7e059e831'
+
+  # 监听信息的user
+  user_phone: '+86190000010'
+
+  # 发送消息的bot
+  bot_token: '1000007:AAHNh8axxxxxxxxxxxxxxxxHA'
+
+# LOG
+logger:
+  path: null # e.g. /root/absolute-path/   default null: {_current_path}/logs/
+  level: INFO # FATAL,ERROR,WARN,INFO,DEBUG,NOTSET
+
+# 代理
+proxy:
+  type: SOCKS5 # e.g. SOCKS4, SOCKS5, HTTP
+  address: null  # e.g. 127.0.0.1
+  port: null # e.g. 1088
+
+# 数据流
+data:
+  # bot只接收来自以下ID的命令
+  # 可以设置为用户或群组的ID
+  command_id_list: 
+    - 123456789
+    - 987654321
+  # bot的通知信息发送到以下ID
+  # 可以设置为用户或群组或频道的ID
+  result_id_list: 
+    - 123456789
+    - 987654321
+  # 临时屏蔽一些数据源, 而不需要user从群组或频道中退出
+  source_filter: false 
+  source_filter_block_list:
+    - 123456789
+    - 987654321
+  # 忽略来自机器人的消息
+  # 比如，有些群里有自动回复机器人，回复的都是重复的消息
+  block_bot_msg: true
+
+# 关键字
+keyword:
+  # 关注的 关键字列表 支持正则表达式
+  keyword_list:
+    - /keyword1|keyword2|keyword3/i
+    - /keyword4|keyword5|keyword6/i
+
+  # 排除的 关键字列表 支持正则表达式
+  exclude_list:
+    - /exkeyword1|exkeyword2|exkeyword3/i
+    - /exkeyword4|exkeyword5|exkeyword6/i
