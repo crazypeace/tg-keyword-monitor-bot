@@ -46,9 +46,9 @@ keyword:
   # 关注的 关键字列表 支持正则表达式
   keyword_list:
     - /keyword1|keyword2|keyword3/i
-    - /keyword4|keyword5|keyword6/i
+    - 极简|一键|脚本
 
   # 排除的 关键字列表 支持正则表达式
   exclude_list:
     - /exkeyword1|exkeyword2|exkeyword3/i
-    - /exkeyword4|exkeyword5|exkeyword6/i
+    - 政治|盗版|八卦

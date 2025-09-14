@@ -3,7 +3,6 @@
 
 import asyncio
 import logging
-import os
 import re
 import yaml
 from datetime import datetime
@@ -13,26 +12,6 @@ from typing import List, Dict, Any, Optional
 from telethon import TelegramClient, events
 from telethon.tl.types import PeerUser, PeerChat, PeerChannel
 from telethon.utils import get_display_name, get_peer_id, resolve_id
-
-
-# 用 telethon.utils 中的函数 resolve_id
-# 测试无误的话, 本函数需要删除
-# def Peer_id_to_ui_id(chat_id) -> int:
-#     # Telethon 使用的底层协议（MTProto）将群组和频道的 ID 编码为负数
-#     # 从 Telegram 软件界面上看到的ID都是正数
-
-#     # 对于用户 ID：ID 本身就是正数，无需转换
-#     # 对于普通群组 ID：通常以负数 - 开头，需要移除负号
-#     # 对于超级群组和频道 ID：通常以负数 -100 开头，需要移除 -100
-
-#     # 去掉开头的 '-'
-#     clean_id_str = str(chat_id).replace('-', '') 
-    
-#     # 然后去掉开头的 '100'
-#     if clean_id_str.startswith('100'):
-#         clean_id_str = clean_id_str[3:]
-
-#     return int(clean_id_str)
 
 class TelegramKeywordBot:
     def __init__(self, config_path: str = 'config.yaml'):
@@ -314,27 +293,7 @@ class TelegramKeywordBot:
                 sender_info += f"(@{sender.username})"
             else:
                 sender_info += f"({sender.id})"
-                    
-            # if message.from_id:
-            #     try:
-            #         sender = await self.user_client.get_entity(message.from_id)
-            #         sender_info = get_display_name(sender)
-
-            #         # 测试没问题的话 代码清理掉
-            #         # if hasattr(sender, 'first_name'):
-            #         #     sender.first_name
-            #         #     if hasattr(sender, 'last_name') and sender.last_name:
-            #         #         sender_info += f" {sender.last_name}"
-
-            #         if hasattr(sender, 'username') and sender.username:
-            #             sender_info += f"(@{sender.username})"
-            #         else:
-            #             sender_info += f"({message.from_id.user_id})"
-
-            #     except Exception as e:
-            #         self.logger.error(f"获取sender信息时出错: {e}")
-            #         sender_info = str(message.from_id)
-            
+                                
             # 构建通知消息
             notification = f'[#FOUND]({chat_url}) "**{regex_match_str}**" IN **{chat_title}**{chat_info} FROM {sender_info}'
             notification += f'\n{message_text[:200]}'
