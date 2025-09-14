@@ -323,8 +323,8 @@ class TelegramKeywordBot:
 
             # 检查权限
             if not self.check_command_authorized(cmd_sender_id):
-                self.logger.info(f'{cmd_sender_id} 没有权限使用此Bot')
-                await event.reply(f'❌ {cmd_sender_id} 没有权限使用此Bot')
+                self.logger.info(f'({cmd_sender_id}) 没有权限使用此Bot')
+                await event.reply(f'❌ ({cmd_sender_id}) 没有权限使用此Bot')
                 return
             
             command_text = message.message.strip()

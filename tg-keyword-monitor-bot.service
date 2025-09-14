@@ -1,5 +1,5 @@
 [Unit]
-Description=Telethon Bot Service
+Description=tg-keyword-monitor-bot Service
 After=network.target
 Wants=network-online.target
 
@@ -14,7 +14,7 @@ Restart=always
 RestartSec=10
 StandardOutput=journal
 StandardError=journal
-SyslogIdentifier=tg-bot
+SyslogIdentifier=tg-keyword-monitor-bot
 
 # 安全设置
 NoNewPrivileges=true
