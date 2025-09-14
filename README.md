@@ -146,6 +146,8 @@ python3 ./main.py
 ## 长期运行bot
 
 ```
+cp tg-keyword-monitor-bot.service /etc/systemd/system/
+sudo systemctl daemon-reload
 systemctl enable tg-keyword-monitor-bot.service
 systemctl start tg-keyword-monitor-bot.service
 ```
