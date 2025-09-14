@@ -1,27 +1,16 @@
 [Unit]
 Description=tg-keyword-monitor-bot Service
 After=network.target
-Wants=network-online.target
 
 [Service]
 Type=simple
-User=boot
-Group=boot
+User=root
 WorkingDirectory=/root/tg-keyword-monitor-bot
-Environment=PYTHONUNBUFFERED=1
 ExecStart=python3 /root/tg-keyword-monitor-bot/main.py
 Restart=always
 RestartSec=10
 StandardOutput=journal
 StandardError=journal
-SyslogIdentifier=tg-keyword-monitor-bot
-
-# 安全设置
-NoNewPrivileges=true
-PrivateTmp=true
-ProtectSystem=strict
-ProtectHome=true
-ReadWritePaths=/root/tg-keyword-monitor-bot
 
 [Install]
 WantedBy=multi-user.target
