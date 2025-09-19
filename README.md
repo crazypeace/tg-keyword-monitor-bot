@@ -147,7 +147,7 @@ python3 ./main.py
 
 ```
 cp tg-keyword-monitor-bot.service /etc/systemd/system/
-sudo systemctl daemon-reload
+systemctl daemon-reload
 systemctl enable tg-keyword-monitor-bot.service
 systemctl start tg-keyword-monitor-bot.service
 ```
