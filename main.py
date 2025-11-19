@@ -114,7 +114,7 @@ class TelegramKeywordBot:
                 self.logger.error(f'关键字正则表达式编译失败: {pattern}, 错误: {e}')
         
         # 编译排除关键字
-        for pattern in self.config.get('keyword_exclude_list', []):
+        for pattern in self.config.get('keyword', {}).get('exclude_list', []):
             try:
                 if pattern.startswith('/') and pattern.rfind('/') > 0:
                     last_slash = pattern.rfind('/')
