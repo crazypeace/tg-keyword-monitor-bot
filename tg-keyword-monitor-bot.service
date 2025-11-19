@@ -5,7 +5,9 @@ After=network.target
 [Service]
 Type=simple
 User=root
+# 注意修改为你自己的目录
 WorkingDirectory=/root/tg-keyword-monitor-bot
+# 注意修改为你自己的目录
 ExecStart=python3 /root/tg-keyword-monitor-bot/main.py
 Restart=always
 RestartSec=10
