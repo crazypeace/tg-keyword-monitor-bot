@@ -333,10 +333,10 @@ class TelegramKeywordBot:
                 await event.reply("""✨ Telegram关键字监听Bot
                 
 🔧 可用命令:
-/add_keyword <正则表达式> - 添加关注关键字
-/remove_keyword <正则表达式> - 移除关注关键字
-/add_exclude <正则表达式> - 添加排除关键字
-/remove_exclude <正则表达式> - 移除排除关键字
+`/add_keyword` <正则表达式> - 添加关注关键字
+`/remove_keyword` <正则表达式> - 移除关注关键字
+`/add_exclude` <正则表达式> - 添加排除关键字
+`/remove_exclude` <正则表达式> - 移除排除关键字
 /list_keywords - 查看所有关键字""")
             
             elif command_text.startswith('/add_keyword '):
@@ -453,3 +453,4 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
+
