@@ -1,6 +1,9 @@
 # tg-keyword-monitor-bot
 Telegram 监控关键字机器人 基于 telethon
 
+## DEMO演示
+https://t.me/FuckGFWNewbieNeedHelp
+
 ## 项目原理
 登录一个telegram的用户, 在各个群组/频道中接收消息.  
 当消息内容匹配关键字时, 控制一个telegram的机器人发出通知.
