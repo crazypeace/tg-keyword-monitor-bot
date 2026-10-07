@@ -173,6 +173,10 @@ class TelegramKeywordBot:
         # 启动Bot客户端
         await self.bot_client.start(bot_token=account_config['bot_token'])
         
+        # 获取机器人自身的ID
+        self.bot_me = await self.bot_client.get_me()
+        self.bot_id = self.bot_me.id
+
         self.logger.info("客户端初始化完成")
     
     def check_message_keywords(self, message_text: str):
@@ -314,7 +318,17 @@ class TelegramKeywordBot:
             cmd_sender_id, peer_type = resolve_id(cmd_sender_id)            
 
             self.logger.info(f'cmd_sender_id = {cmd_sender_id}')
-                        
+
+            # 如果消息来自机器人自身, 直接忽略
+            if cmd_sender_id == self.bot_id:
+                self.logger.debug('忽略来自本机器人自身的消息')
+                return
+
+            # 如果消息不是以 / 开头, 直接忽略
+            if not message.message or not message.message.startswith('/'):
+                self.logger.debug(f'忽略非命令消息: {message.message[:20] if message.message else ""}')
+                return
+
             # 如果命令不是来自 用户直接的消息, 那么应该忽略来自 输出结果中的群组和频道 的信息
             # 输出结果 列表可以包含 user, group, channel
             if peer_type is not PeerUser:
